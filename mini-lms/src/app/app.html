@@ -1,38 +1,25 @@
-<div class="container mt-4">
-  <h1 class="mb-3">{{ titulo }}</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Edad</th>
-        <th>Créditos</th>
-        <th>Estado</th>
-        <Th>Validar</Th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- *ngFor: directiva estructural que repite una fila por estudiante
--->
-      <tr *ngFor="let e of estudiantes">
-        <td>{{ e.nombre }}</td>
-        <td>{{e.edad}}</td>
-        <td>{{ e.creditos }}</td>
-        <td>
-          <!-- [class...]: directiva de atributo que cambia el estilo según
-el estado -->
-          <span class="badge" [class.bg-success]="estado(e.creditos) === 'Matriculado'
-                            " [class.bg-secondary]="estado(e.creditos) !=='Matriculado'">
-            {{ estado(e.creditos) }}
-          </span>
-        </td>
-        <td>
-          <span class="badge" [class.bg-success]="edad(e.edad) === 'Mayor de edad'
-                            " [class.bg-danger]="edad(e.edad) === 'Menor de edad'
-                            " [class.bg-secondary]="edad(e.edad) === 'edad invalida'">
-            {{ edad(e.edad) }}
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+      <span class="navbar-brand">{{ titulo }}</span>
+      <div>
+        <a class="btn btn-outline-light btn-sm" routerLink="/">Lista</a>
+        <a class="btn btn-outline-light btn-sm ms-2" routerLink="/agregar">Agregar</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</body>
+
+</html>

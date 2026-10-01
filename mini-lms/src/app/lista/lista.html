@@ -1,0 +1,24 @@
+<h1 class="mb-3">Lista de estudiantes</h1>
+<a class="btn btn-primary mb-3" routerLink="/agregar">Agregar estudiante</a>
+<a class="btn btn-primary mb-3 mx-3" routerLink="/agregar">Hola mundo</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Créditos</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of estudiantes">
+            <td>{{ e.nombre }}</td>
+            <td>{{ e.creditos }}</td>
+            <td>
+                <span class="badge" [class.bg-success]="estado(e.creditos) === 'Matriculado'"
+                    [class.bg-secondary]="estado(e.creditos) !== 'Matriculado'">
+                    {{ estado(e.creditos) }}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
